@@ -1,14 +1,19 @@
-const mongoose = require('mongoose');
+//define(function (require) {
+  const mongoose = require('mongoose');
 
-async function main() {
-  await mongoose.connect('mongodb://localhost/sldb');
+  main().catch(err => console.log(err));
 
-  const studentSchema = new mongoose.Schema({
-    name: String
-  });
+  async function main() {
+  
+    await mongoose.connect('mongodb://localhost/sldb');
 
-  const Student = mongoose.model('Student', studentSchema);
+    const studentSchema = new mongoose.Schema({
+      name: String
+    });
 
-  const patrick = new Student({name: 'Patrick' });
-  console.log(patrick.name);
-}
+    const Student = mongoose.model('Student', studentSchema);
+
+    const patrick = new Student({name: 'Patrick' });
+    console.log(patrick.name);
+  }
+//});
